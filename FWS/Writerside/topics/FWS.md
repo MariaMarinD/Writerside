@@ -129,7 +129,8 @@ usually consists of time in µs, sampled also at a constant rate.</format>
 <format style="bold" color="Black">iii.</format><format style="" color="Black">High Pass = 19.67</format>
 
 <format style="bold" color="Black">iv.</format><format style="" color="Black">High Cut = 30.16</format>
-            <p>d. Repeat for RX2-1A and RX3-1A</p>
+
+<p>d. Repeat for RX2-1A and RX3-1A</p>
 </step>
 
 </procedure>
@@ -172,6 +173,74 @@ values to pick as close as possible to the maximum of the first correlation maxi
     <step>Clean any odd spikes
     </step>
 
+<procedure title="P-S Wave Slowness" collapsible="true">
+<format style="bold" color="Orange">P-S Wave Slowness</format>
+    <step>
+        <p>process->FWS module->Velocity Analysis->Adjust Extremum process to move the approximate
+pick to the correlation to the closest maximum.</p>
+<format style="bold" color="Black">i.</format><format style="" color="Black">FWS log = VDL.</format>
+<format style="bold" color="Black">ii.</format><format style="" color="Black">Extremum log to adjust = VDL - dt.</format>
+    </step>
+    <step>
+        <p>Repeat steps 5-7 of "Create VDL Log" for S Wave Slowness.</p>
+    </step>
 
+</procedure>
+<procedure title="Create P+S Wave Velocity Log" collapsible="true">
+<format style="bold" color="Orange">Create P+S Wave Velocity Log</format>
+    <step>
+        <p>Create a formula log for P Wave Velocity Log.</p>
+
+  <code-block lang="tex">
+    \begin{equation}
+    1000000/P Wave Slowness
+    \end{equation}
+</code-block>
+    </step>
+    <step>
+    <p>Create a formula log for S Wave Velocity Log.</p>
+
+  <code-block lang="tex">
+    \begin{equation}
+    1000000/S Wave Slowness
+    \end{equation}
+</code-block>
+    </step>
+    <step>
+        <p> Re-name P or S Wave Velocity</p>
+</step>
+</procedure>
+<procedure title="Finishing the Plot" collapsible="true">
+<format style="bold" color="Orange">Finishing the Plot</format>
+    <step>
+        <p>Apply templates and headers as needed.</p>
+    </step>
+    <step>
+        <p>Save, create pdf and .csv (.csv of P + S Wave slowness and Velocity).</p>
+    </step>
+</procedure>
+<procedure title="Field Plot" collapsible="true">
+<format style="bold" color="Orange">Finishing the Plot</format>
+    <step>
+        <p>Import Data.</p>
+    </step>
+    <step>
+        <p>Keep RX1-1A, RX2-1A, and RX3-1A.</p>
+    </step>
+    <step>
+        <p>Interpolate bad traces (process->FWS module->Interpolate bad traces).</p>
+    </step>
+    <step>
+        <p>Depth shift and merge runs if needed, but please check repeatability.</p>
+    </step>
+    <step>
+        <p>RX1-1A, RX2-1A, and RX3-1A change amplitude scale -150 and 150 and trace scale 0-1000.</p>
+    </step>
+    <step>
+        <p>Apply templates and headers as needed.</p>
+    </step>
+    <step>
+        <p>Save and create a pdf.</p>
+    </step>
 </procedure>
 </procedure>
